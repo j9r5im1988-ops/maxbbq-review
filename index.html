@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-Hant">
+<html lang="zh-Hans">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
@@ -192,7 +192,7 @@
     <svg class="doodle d4" width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
 
     <div class="logo-text"><span class="logo-max">MAX</span><span class="logo-sub">BBQ &amp; KTV · NIGHT BAR</span></div>
-    <div class="ribbon">多謝今晚嚟玩！<span class="en">Thank you for spending your night with us!</span></div>
+    <div class="ribbon">谢谢今晚来玩！<span class="en">Thank you for spending your night with us!</span></div>
     <p class="addr">18958 Daisetta St #106, Rowland Heights, CA 91748 · Open Daily 5PM – 2AM</p>
     <svg class="wave" width="120" height="10" viewBox="0 0 120 10" fill="none" aria-hidden="true"><path d="M2 5 Q 12 0, 22 5 T 42 5 T 62 5 T 82 5 T 102 5 T 122 5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
   </header>
@@ -201,33 +201,33 @@
   <section class="card" aria-labelledby="s1">
     <div class="step-head">
       <span class="step-num">1</span>
-      <h2 id="s1">今晚食咗、玩咗咩？<span class="en">What did you have tonight? Tap all that apply</span></h2>
+      <h2 id="s1">今晚吃了、玩了什么？<span class="en">What did you have tonight? Tap all that apply</span></h2>
     </div>
-    <p class="step-sub">㩒下你試過嘅串燒、飲品同體驗，可以㩒多幾樣，寫出嚟嘅好評會更貼近你今晚嘅體驗。</p>
+    <p class="step-sub">点一点你试过的串烧、饮品和体验，可以多选几样，写出来的好评会更贴近你今晚的真实感受。</p>
 
-    <p class="group-label">🔥 招牌串燒同飲品 Skewers &amp; Drinks</p>
+    <p class="group-label">🔥 招牌串烧和饮品 Skewers &amp; Drinks</p>
     <div class="chips" id="dishChips"></div>
 
-    <p class="group-label">🎤 今晚體驗 The experience</p>
+    <p class="group-label">🎤 今晚体验 The experience</p>
     <div class="chips" id="vibeChips"></div>
 
-    <p class="selected-count" id="selCount">已揀 <b>0</b> 樣 · Nothing selected yet — 唔揀都得，會幫你寫通用好評</p>
+    <p class="selected-count" id="selCount">已选 <b>0</b> 项 · Nothing selected yet — 不选也可以，会帮你写通用好评</p>
   </section>
 
   <!-- STEP 2 -->
   <section class="card" aria-labelledby="s2">
     <div class="step-head">
       <span class="step-num">2</span>
-      <h2 id="s2">一鍵寫好評<span class="en">Generate your review</span></h2>
+      <h2 id="s2">一键写好评<span class="en">Generate your review</span></h2>
     </div>
     <div class="lang-row">
-      <span class="lang-label">好評語言 Review language</span>
+      <span class="lang-label">好评语言 Review language</span>
       <div class="lang-toggle" role="group" aria-label="Review language">
         <button type="button" id="langEn" aria-pressed="true">English</button>
-        <button type="button" id="langZh" aria-pressed="false">中文</button>
+        <button type="button" id="langZh" aria-pressed="false">普通话</button>
       </div>
     </div>
-    <button type="button" class="btn-gen" id="btnGen">幫我寫好評 ✍️<span class="en">Write my review</span></button>
+    <button type="button" class="btn-gen" id="btnGen">帮我写好评 ✍️<span class="en">Write my review</span></button>
 
     <div class="draft-box" id="draftBox">
       <div class="draft" id="draftText"></div>
@@ -236,8 +236,8 @@
         <span id="charCount"></span>
       </div>
       <div class="draft-actions">
-        <button type="button" class="btn btn-again" id="btnAgain">🔀 換一條 Shuffle</button>
-        <button type="button" class="btn btn-copy" id="btnCopy">📋 複製全文 Copy</button>
+        <button type="button" class="btn btn-again" id="btnAgain">🔀 换一条 Shuffle</button>
+        <button type="button" class="btn btn-copy" id="btnCopy">📋 复制全文 Copy</button>
       </div>
     </div>
   </section>
@@ -246,58 +246,58 @@
   <section class="card" aria-labelledby="s3">
     <div class="step-head">
       <span class="step-num">3</span>
-      <h2 id="s3">去發表好評<span class="en">Post your review</span></h2>
+      <h2 id="s3">去发表好评<span class="en">Post your review</span></h2>
     </div>
-    <div class="hint">先複製好評，再去貼上、揀星星就發表到 ⭐<span class="en">Copy your review first, then paste it and tap the stars to post.</span></div>
+    <div class="hint">先复制好评，再去粘贴、点星星就能发表 ⭐<span class="en">Copy your review first, then paste it and tap the stars to post.</span></div>
     <div class="post-btns">
       <a class="btn btn-google" href="https://g.page/r/CSlAYEKN8nH4EAI/review" target="_blank" rel="noopener">
-        <span><span class="g-mark"><span class="b">G</span><span class="r">o</span><span class="y">o</span><span class="g">g</span><span class="b">l</span><span class="g">e</span></span> 去 Google 發表<span class="sub">Review on Google</span></span>
+        <span><span class="g-mark"><span class="b">G</span><span class="r">o</span><span class="y">o</span><span class="g">g</span><span class="b">l</span><span class="g">e</span></span> 去 Google 发表<span class="sub">Review on Google</span></span>
       </a>
       <a class="btn btn-yelp" href="https://www.yelp.com/writeareview/biz/max-bbq-night-bar-rowland-heights-4" target="_blank" rel="noopener">
-        <span>去 Yelp 發表<span class="sub">Review on Yelp</span></span>
+        <span>去 Yelp 发表<span class="sub">Review on Yelp</span></span>
       </a>
     </div>
   </section>
 
   <footer>
-    評價內容可以按你嘅真實體驗再改改，多謝今晚嚟玩！<span class="heart">♥</span><br>
+    评价内容可以按你的真实体验再改一改，谢谢今晚来玩！<span class="heart">♥</span><br>
     Feel free to tweak the draft so it matches your own night — thank you for partying with us!
   </footer>
 </div>
 
-<div class="toast" id="toast" role="status" aria-live="polite">✅ 已複製！去貼上啦</div>
+<div class="toast" id="toast" role="status" aria-live="polite">✅ 已复制！去粘贴吧</div>
 
 <script>
 (function(){
   "use strict";
 
   var DISHES = [
-    {name:"羊肉串", label:"Lamb Skewers", en:"the lamb skewers were juicy with that perfect cumin char", zh:"羊肉串孜然香濃，燒到外脆內嫩"},
-    {name:"牛肉串", label:"Beef Skewers", en:"the beef skewers were tender, smoky, and seasoned just right", zh:"牛肉串夠嫩夠入味，煙燻香十足"},
-    {name:"牛肋骨串", label:"Beef Short Rib Skewers", en:"the short rib skewers were rich and melt-in-your-mouth", zh:"牛肋骨串油香豐富，入口即化"},
-    {name:"雞脆骨串", label:"Chicken Cartilage Skewers", en:"the chicken cartilage skewers were crunchy and dangerously snackable", zh:"雞脆骨串脆卜卜，送酒一流"},
-    {name:"重慶烤魚", label:"Chongqing Grilled Fish", en:"the Chongqing grilled fish was spicy, numbing, and loaded with flavor", zh:"重慶烤魚麻辣鮮香，越食越過癮"},
-    {name:"烤牛骨髓", label:"Grilled Beef Bone Marrow", en:"the grilled bone marrow was rich, buttery, and unforgettable", zh:"烤牛骨髓香滑濃郁，食過返尋味"},
-    {name:"麻辣牛舌", label:"Spicy Beef Tongue", en:"the Sichuan-spiced beef tongue was tender with a nice kick", zh:"麻辣牛舌爽嫩帶勁，麻香啱啱好"},
-    {name:"蒜蓉烤茄子", label:"Garlic Grilled Eggplant", en:"the garlic grilled eggplant was soft, savory, and full of flavor", zh:"蒜蓉烤茄子綿軟入味，蒜香爆棚"},
-    {name:"芝士粟米", label:"Corn Cheese", en:"the corn cheese was gooey, sweet, and super comforting", zh:"芝士粟米拉絲又香甜，老少咸宜"},
-    {name:"炸魷魚鬚", label:"Fried Calamari", en:"the fried calamari was crispy outside and tender inside", zh:"炸魷魚鬚外脆內彈，唔會韌"},
-    {name:"鹽酥雞", label:"Popcorn Chicken", en:"the popcorn chicken was crispy, juicy, and perfect with drinks", zh:"鹽酥雞香脆多汁，送酒絕配"},
-    {name:"臭豆腐", label:"Stinky Tofu", en:"the stinky tofu was crispy, funky in the best way, and so authentic", zh:"臭豆腐外脆內嫩，嗰種香臭味好正宗"},
-    {name:"炒飯", label:"Fried Rice", en:"the fried rice had real wok flavor and wasn't greasy at all", zh:"炒飯有鑊氣，乾爽唔油膩"},
-    {name:"烤金針菇", label:"Grilled Enoki Mushrooms", en:"the grilled enoki mushrooms were savory and soaked up all the seasoning", zh:"烤金針菇索晒啲醬汁，鮮味十足"},
-    {name:"啤酒塔", label:"Beer Tower", en:"the beer tower was ice-cold and perfect for sharing with the whole table", zh:"啤酒塔夠晒冰凍，一班朋友share最開心"},
-    {name:"燒酒", label:"Soju", en:"chilled soju rounds with the crew made the night", zh:"冰凍燒酒一杯接一杯，氣氛即刻嚟晒"}
+    {name:"羊肉串", label:"Lamb Skewers", en:"the lamb skewers were juicy with that perfect cumin char", zh:"羊肉串孜然香浓，烤得外焦里嫩"},
+    {name:"牛肉串", label:"Beef Skewers", en:"the beef skewers were tender, smoky, and seasoned just right", zh:"牛肉串够嫩够入味，烟熏香十足"},
+    {name:"牛肋骨串", label:"Beef Short Rib Skewers", en:"the short rib skewers were rich and melt-in-your-mouth", zh:"牛肋骨串油香丰富，入口即化"},
+    {name:"鸡脆骨串", label:"Chicken Cartilage Skewers", en:"the chicken cartilage skewers were crunchy and dangerously snackable", zh:"鸡脆骨串脆脆的，下酒一流"},
+    {name:"重庆烤鱼", label:"Chongqing Grilled Fish", en:"the Chongqing grilled fish was spicy, numbing, and loaded with flavor", zh:"重庆烤鱼麻辣鲜香，越吃越过瘾"},
+    {name:"烤牛骨髓", label:"Grilled Beef Bone Marrow", en:"the grilled bone marrow was rich, buttery, and unforgettable", zh:"烤牛骨髓香滑浓郁，吃过还想吃"},
+    {name:"麻辣牛舌", label:"Spicy Beef Tongue", en:"the Sichuan-spiced beef tongue was tender with a nice kick", zh:"麻辣牛舌爽嫩带劲，麻香刚刚好"},
+    {name:"蒜蓉烤茄子", label:"Garlic Grilled Eggplant", en:"the garlic grilled eggplant was soft, savory, and full of flavor", zh:"蒜蓉烤茄子绵软入味，蒜香十足"},
+    {name:"芝士玉米", label:"Corn Cheese", en:"the corn cheese was gooey, sweet, and super comforting", zh:"芝士玉米拉丝又香甜，老少都爱"},
+    {name:"炸鱿鱼须", label:"Fried Calamari", en:"the fried calamari was crispy outside and tender inside", zh:"炸鱿鱼须外脆里弹，一点不韧"},
+    {name:"盐酥鸡", label:"Popcorn Chicken", en:"the popcorn chicken was crispy, juicy, and perfect with drinks", zh:"盐酥鸡香脆多汁，配酒绝了"},
+    {name:"臭豆腐", label:"Stinky Tofu", en:"the stinky tofu was crispy, funky in the best way, and so authentic", zh:"臭豆腐外脆里嫩，那个味儿特别正宗"},
+    {name:"炒饭", label:"Fried Rice", en:"the fried rice had real wok flavor and wasn't greasy at all", zh:"炒饭有锅气，干爽不油腻"},
+    {name:"烤金针菇", label:"Grilled Enoki Mushrooms", en:"the grilled enoki mushrooms were savory and soaked up all the seasoning", zh:"烤金针菇吸满了酱汁，鲜味十足"},
+    {name:"啤酒塔", label:"Beer Tower", en:"the beer tower was ice-cold and perfect for sharing with the whole table", zh:"啤酒塔冰冰凉凉，一桌朋友分享最开心"},
+    {name:"烧酒", label:"Soju", en:"chilled soju rounds with the crew made the night", zh:"冰镇烧酒一杯接一杯，气氛一下就来了"}
   ];
 
   var VIBES = [
-    {name:"KTV包房唱K", label:"Private KTV Room", en:"we booked a private karaoke room and sang our hearts out", zh:"訂咗KTV包房，唱到聲沙都唔願走"},
-    {name:"大廳唱歌", label:"Main Hall Singing", en:"you can even sing in the main hall — the whole place joins in", zh:"大廳都可以唱歌，全場一齊high"},
-    {name:"氣氛夠High", label:"Neon Night Vibes", en:"the neon-lit vibe felt like a night out in Chongqing", zh:"霓虹燈加音樂，好有重慶夜生活feel"},
-    {name:"朋友聚會", label:"Great for Groups", en:"it's the perfect spot to hang out with friends", zh:"同成班朋友嚟聚會啱晒"},
-    {name:"生日派對", label:"Birthday Party", en:"such a fun place for a birthday celebration", zh:"喺度開生日派對超有氣氛"},
-    {name:"服務親切", label:"Friendly Staff", en:"the staff were friendly and took great care of us", zh:"店員服務親切，招呼周到"},
-    {name:"開到凌晨2點", label:"Open Till 2 AM", en:"love that they stay open till 2 AM", zh:"開到凌晨兩點，夜貓子福音"}
+    {name:"KTV包房唱K", label:"Private KTV Room", en:"we booked a private karaoke room and sang our hearts out", zh:"订了KTV包房，唱到嗓子哑都不想走"},
+    {name:"大厅唱歌", label:"Main Hall Singing", en:"you can even sing in the main hall — the whole place joins in", zh:"大厅也能唱歌，全场一起嗨"},
+    {name:"气氛超嗨", label:"Neon Night Vibes", en:"the neon-lit vibe felt like a night out in Chongqing", zh:"霓虹灯加音乐，特别有重庆夜生活的感觉"},
+    {name:"朋友聚会", label:"Great for Groups", en:"it's the perfect spot to hang out with friends", zh:"和一帮朋友来聚会太合适了"},
+    {name:"生日派对", label:"Birthday Party", en:"such a fun place for a birthday celebration", zh:"在这儿办生日派对超有气氛"},
+    {name:"服务热情", label:"Friendly Staff", en:"the staff were friendly and took great care of us", zh:"店员服务热情，招待周到"},
+    {name:"开到凌晨2点", label:"Open Till 2 AM", en:"love that they stay open till 2 AM", zh:"开到凌晨两点，夜猫子福音"}
   ];
 
   var T = {
@@ -336,35 +336,35 @@
     },
     zh: {
       openers: [
-        "終於嚟試咗 Rowland Heights 呢間 MAX BBQ & KTV，又食又唱，成晚超滿足！",
-        "串燒、啤酒、唱K一次過滿足晒，呢間真係要推介。",
-        "同班朋友嚟呢度過夜晚，個個都玩到唔捨得走。",
-        "鍾意重慶燒烤嘅朋友，呢間係真材實料。",
-        "Rowland Heights 宵夜好去處，冇得輸。",
-        "今次訂咗KTV包房，唱到盡興，好耐冇咁開心過。"
+        "终于来试了 Rowland Heights 这家 MAX BBQ & KTV，又吃又唱，整晚超满足！",
+        "串烧、啤酒、唱K一次全搞定，这家真的要推荐。",
+        "和朋友来这儿过夜晚，大家玩到都不想走。",
+        "喜欢重庆烧烤的朋友，这家是真材实料。",
+        "Rowland Heights 宵夜好去处，没得挑。",
+        "这次订了KTV包房，唱得尽兴，好久没这么开心了。"
       ],
       dishIntros: [
-        "今次叫嘅每樣都好啱食——",
-        "特別想推介：",
-        "我哋叫到成枱都係，其中",
-        "講到食同飲，",
-        "先講下啲嘢食："
+        "这次点的每样都好吃——",
+        "特别想推荐：",
+        "我们点了一大桌，其中",
+        "说到吃的喝的，",
+        "先说说吃的："
       ],
       joinMid: "；",
-      joinLast: "；同埋",
+      joinLast: "；还有",
       vibeIntros: [
         "另外，",
-        "仲有，",
-        "氣氛方面，",
-        "值得一讚嘅係，"
+        "还有，",
+        "气氛方面，",
+        "值得一夸的是，"
       ],
-      genericDish: "每樣串燒都即叫即燒，熱辣辣好有重慶風味",
+      genericDish: "每样串烧都是现点现烤，热乎乎的，特别有重庆风味",
       closers: [
-        "一定會再嚟，誠意推介俾鍾意夜生活嘅朋友！",
-        "已經諗定下次幾時再嚟，五星冇懸念。",
-        "附近有間開到凌晨兩點嘅好地方，真係好幸福。",
-        "食到飽、唱到沙，下次要帶多啲朋友嚟！",
-        "呢啲咁有氣氛嘅店值得支持，會再返嚟。"
+        "一定会再来，诚意推荐给喜欢夜生活的朋友！",
+        "已经想好下次什么时候来了，五星没悬念。",
+        "附近有家开到凌晨两点的宝藏店，太幸福了。",
+        "吃到饱、唱到哑，下次要带更多朋友来！",
+        "这么有气氛的店值得支持，会再来的。"
       ]
     }
   };
@@ -412,9 +412,9 @@
     var n = countSelected();
     var el = document.getElementById("selCount");
     if(n === 0){
-      el.innerHTML = "已揀 <b>0</b> 樣 · Nothing selected yet — 唔揀都得，會幫你寫通用好評";
+      el.innerHTML = "已选 <b>0</b> 项 · Nothing selected yet — 不选也可以，会帮你写通用好评";
     } else {
-      el.innerHTML = "已揀 <b>" + n + "</b> 樣 · " + n + " selected — 㩒下面粒掣即刻寫好評！";
+      el.innerHTML = "已选 <b>" + n + "</b> 项 · " + n + " selected — 点下面的按钮马上写好评！";
     }
   }
 
@@ -465,7 +465,7 @@
     hasDraft = true;
     var copyBtn = document.getElementById("btnCopy");
     copyBtn.classList.remove("copied");
-    copyBtn.innerHTML = "📋 複製全文 Copy";
+    copyBtn.innerHTML = "📋 复制全文 Copy";
   }
 
   document.getElementById("btnGen").addEventListener("click", function(){
@@ -488,11 +488,11 @@
     var text = draftText.textContent;
     function done(){
       btn.classList.add("copied");
-      btn.innerHTML = "✅ 已複製 Copied!";
-      showToast("✅ 已複製 Copied! 去 Google / Yelp 貼上啦");
+      btn.innerHTML = "✅ 已复制 Copied!";
+      showToast("✅ 已复制 Copied! 去 Google / Yelp 粘贴吧");
       setTimeout(function(){
         btn.classList.remove("copied");
-        btn.innerHTML = "📋 複製全文 Copy";
+        btn.innerHTML = "📋 复制全文 Copy";
       }, 2600);
     }
     if(navigator.clipboard && navigator.clipboard.writeText){
@@ -505,7 +505,7 @@
       document.body.appendChild(ta);
       ta.select();
       try { document.execCommand("copy"); done(); }
-      catch(e){ showToast("複製唔到 Copy failed — 請長㩒文字手動複製"); }
+      catch(e){ showToast("复制失败 Copy failed — 请长按文字手动复制"); }
       document.body.removeChild(ta);
     }
   });
