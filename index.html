@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="dark" />
+<link rel="icon" href="data:," />
+<title>MAX BBQ &amp; KTV · 扫码写好评</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Quicksand:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#0C0C11;
+    --cream-2:#17171F;
+    --paper:#14141C;
+    --brown:#F2EAD9;
+    --brown-soft:#C9BBA3;
+    --brown-faint:#9A8F7C;
+    --orange:#FF3355;
+    --orange-dark:#C40E33;
+    --orange-soft:#2A1219;
+    --orange-pale:#1C1C26;
+    --red:#E4002B;
+    --green:#B26BFF;
+    --line:#2E2A3A;
+    --gold:#F5B942;
+    --shadow:0 3px 0 rgba(0,0,0,.45);
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--cream);
+    background-image:radial-gradient(rgba(255,51,85,.09) 1.6px, transparent 1.7px);
+    background-size:22px 22px;
+    color:var(--brown);
+    font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+    line-height:1.55;
+    padding:0 14px 40px;
+  }
+  .wrap{max-width:640px;margin:0 auto}
+
+  /* ---------- Header ---------- */
+  header{text-align:center;padding:26px 6px 6px;position:relative}
+  .doodle{position:absolute;color:var(--orange);opacity:.9;pointer-events:none;filter:drop-shadow(0 0 6px rgba(255,51,85,.8))}
+  .doodle.d1{top:14px;left:2px;transform:rotate(-14deg)}
+  .doodle.d2{top:20px;right:4px;transform:rotate(12deg)}
+  .doodle.d3{top:110px;left:10px;transform:rotate(8deg)}
+  .doodle.d4{top:118px;right:12px;transform:rotate(-10deg)}
+  .logo-text{margin:6px 0 0;line-height:1.05}
+  .logo-max{
+    font-family:"Archivo Black","Noto Sans TC",sans-serif;font-size:4.3rem;letter-spacing:.05em;color:#FFF;
+    text-shadow:0 0 6px rgba(255,51,85,.95),0 0 24px rgba(255,51,85,.65),0 0 52px rgba(255,51,85,.45);
+  }
+  .logo-sub{
+    display:block;margin-top:6px;font-family:"Quicksand",sans-serif;font-weight:700;
+    font-size:.86rem;letter-spacing:.4em;color:var(--gold);text-indent:.4em;
+  }
+  .ribbon{
+    display:inline-block;margin-top:14px;background:var(--orange);color:#fff;
+    font-weight:900;font-size:.98rem;padding:9px 28px;position:relative;
+    box-shadow:0 0 18px rgba(255,51,85,.45);letter-spacing:.02em;
+    clip-path:polygon(0 0,100% 0,calc(100% - 12px) 50%,100% 100%,0 100%,12px 50%);
+  }
+  .ribbon .en{font-family:"Quicksand",sans-serif;font-weight:600;font-size:.82rem;opacity:.92;display:block;letter-spacing:.03em}
+  .addr{margin:12px 0 0;font-size:.85rem;color:var(--brown-faint);font-weight:500}
+  .wave{display:block;margin:14px auto 2px;color:var(--orange)}
+
+  /* ---------- Cards & steps ---------- */
+  .card{
+    background:var(--paper);border:2px solid var(--line);border-radius:22px;
+    padding:20px 16px 18px;margin-top:18px;box-shadow:var(--shadow);
+  }
+  .step-head{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+  .step-num{
+    flex:0 0 auto;width:34px;height:34px;border-radius:50%;
+    background:var(--orange);color:#fff;font-family:"Quicksand",sans-serif;
+    font-weight:700;font-size:1.05rem;display:flex;align-items:center;justify-content:center;
+    box-shadow:0 0 12px rgba(255,51,85,.55),inset 0 -3px 0 rgba(0,0,0,.25);
+  }
+  .step-head h2{font-size:1.22rem;margin:0;font-weight:900;line-height:1.3}
+  .step-head h2 .en{display:block;font-family:"Quicksand",sans-serif;font-size:.74rem;font-weight:600;color:var(--brown-faint);letter-spacing:.05em}
+  .step-sub{margin:2px 0 12px;font-size:.88rem;color:var(--brown-soft)}
+  .group-label{
+    font-size:.82rem;font-weight:900;color:#FF7A92;margin:14px 0 8px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .group-label::after{content:"";flex:1;border-top:2px dashed var(--line)}
+  .group-label:first-of-type{margin-top:4px}
+
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{
+    appearance:none;border:2px solid var(--line);background:#1B1B26;color:var(--brown);
+    border-radius:999px;padding:8px 15px;font-size:.95rem;font-weight:700;cursor:pointer;
+    font-family:inherit;min-height:44px;line-height:1.2;
+    display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;
+    transition:background .15s,border-color .15s,color .15s,transform .1s;
+  }
+  .chip .chip-zh{font-size:.95rem;font-weight:700;line-height:1.25}
+  .chip .chip-en{
+    font-family:"Quicksand",sans-serif;font-size:.66rem;font-weight:600;
+    letter-spacing:.03em;opacity:.68;line-height:1.25;text-align:center;
+  }
+  .chip:active{transform:scale(.96)}
+  .chip[aria-pressed="true"]{
+    background:var(--orange);border-color:var(--orange-dark);color:#fff;
+    box-shadow:0 0 14px rgba(255,51,85,.5),inset 0 -3px 0 rgba(0,0,0,.25);
+  }
+  .chip.vibe[aria-pressed="true"]{background:var(--green);border-color:#6D28A8;box-shadow:0 0 14px rgba(178,107,255,.45),inset 0 -3px 0 rgba(0,0,0,.25)}
+  .selected-count{font-size:.82rem;color:var(--brown-faint);margin-top:12px;font-weight:500}
+  .selected-count b{color:#FF7A92}
+
+  /* ---------- Language toggle ---------- */
+  .lang-row{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+  .lang-label{font-size:.85rem;font-weight:700;color:var(--brown-soft)}
+  .lang-toggle{display:flex;background:var(--orange-pale);border:2px solid var(--line);border-radius:999px;padding:3px;gap:3px}
+  .lang-toggle button{
+    appearance:none;border:0;background:transparent;color:var(--brown-soft);cursor:pointer;
+    font-family:inherit;font-weight:900;font-size:.9rem;border-radius:999px;padding:9px 18px;min-height:40px;
+  }
+  .lang-toggle button[aria-pressed="true"]{background:var(--orange);color:#fff;box-shadow:inset 0 -2px 0 rgba(0,0,0,.25)}
+
+  .btn-gen{
+    appearance:none;width:100%;border:0;cursor:pointer;border-radius:18px;
+    background:var(--orange);color:#fff;font-family:inherit;
+    font-size:1.25rem;font-weight:900;padding:16px 14px;min-height:60px;
+    box-shadow:0 4px 0 var(--orange-dark),0 0 22px rgba(255,51,85,.4);letter-spacing:.02em;
+  }
+  .btn-gen:active{transform:translateY(3px);box-shadow:0 1px 0 var(--orange-dark)}
+  .btn-gen .en{display:block;font-family:"Quicksand",sans-serif;font-size:.78rem;font-weight:600;opacity:.9;letter-spacing:.06em}
+
+  .draft-box{display:none;margin-top:16px}
+  .draft-box.show{display:block}
+  .draft{
+    background:var(--cream-2);border:2px dashed #5A2E3E;border-radius:16px;
+    padding:14px 14px 10px;font-size:1rem;line-height:1.7;white-space:pre-wrap;word-break:break-word;
+  }
+  .draft-meta{display:flex;justify-content:space-between;align-items:center;margin-top:8px;font-size:.78rem;color:var(--brown-faint);font-weight:500}
+  .stars{color:var(--gold);letter-spacing:.18em;font-size:.95rem}
+  .draft-actions{display:flex;gap:10px;margin-top:12px}
+  .btn{
+    appearance:none;flex:1;cursor:pointer;border-radius:14px;font-family:inherit;
+    font-weight:900;font-size:1rem;padding:13px 10px;min-height:52px;text-decoration:none;
+    display:inline-flex;align-items:center;justify-content:center;gap:7px;text-align:center;line-height:1.25;
+  }
+  .btn-copy{background:var(--gold);color:#221A08;border:0;box-shadow:0 3px 0 #9A6E14}
+  .btn-copy:active{transform:translateY(2px);box-shadow:0 1px 0 #9A6E14}
+  .btn-copy.copied{background:#2E9E5B;color:#fff;box-shadow:0 3px 0 #1F6B3C}
+  .btn-again{background:#1B1B26;color:#FF8FA3;border:2px solid var(--orange)}
+  .btn-again:active{transform:scale(.98)}
+
+  /* ---------- Step 3 ---------- */
+  .hint{
+    background:var(--orange-soft);border-radius:14px;padding:11px 13px;
+    font-size:.9rem;font-weight:700;color:#F0B9C4;margin-bottom:14px;line-height:1.6;
+  }
+  .hint .en{display:block;font-family:"Quicksand",sans-serif;font-weight:600;font-size:.8rem;color:#C98A97}
+  .post-btns{display:flex;flex-direction:column;gap:11px}
+  .btn-google{background:#fff;border:2px solid var(--line);color:#2B2118;box-shadow:var(--shadow);font-size:1.08rem;min-height:58px}
+  .btn-yelp{background:var(--red);border:2px solid var(--red);color:#fff;box-shadow:0 3px 0 #7A0018;font-size:1.08rem;min-height:58px}
+  .btn-google:active,.btn-yelp:active{transform:scale(.99)}
+  .post-btns .sub{display:block;font-size:.74rem;font-weight:500;opacity:.75;font-family:"Quicksand",sans-serif;letter-spacing:.03em}
+  .g-mark{font-family:"Quicksand",sans-serif;font-weight:700}
+  .g-mark .b{color:#4285F4}.g-mark .r{color:#EA4335}.g-mark .y{color:#D9A400}.g-mark .g{color:#34A853}
+
+  footer{
+    text-align:center;margin-top:24px;font-size:.83rem;color:var(--brown-faint);line-height:1.7;padding:0 8px;
+  }
+  footer .heart{color:var(--red)}
+  .toast{
+    position:fixed;left:50%;bottom:26px;transform:translate(-50%,80px);
+    background:#23232E;color:#FFF3D6;font-weight:900;font-size:.95rem;
+    padding:12px 22px;border-radius:999px;box-shadow:0 6px 18px rgba(0,0,0,.5);
+    transition:transform .25s ease,opacity .25s ease,visibility .25s;
+    z-index:20;pointer-events:none;white-space:nowrap;
+    opacity:0;visibility:hidden;
+  }
+  .toast.show{transform:translate(-50%,0);opacity:1;visibility:visible}
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none !important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <svg class="doodle d1" width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.8l3.1 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.6 3.8L7 14.4 1.4 9.4l7.5-.7z"/></svg>
+    <svg class="doodle d2" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+    <svg class="doodle d3" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.8l3.1 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.6 3.8L7 14.4 1.4 9.4l7.5-.7z"/></svg>
+    <svg class="doodle d4" width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+
+    <div class="logo-text"><span class="logo-max">MAX</span><span class="logo-sub">BBQ &amp; KTV · NIGHT BAR</span></div>
+    <div class="ribbon">多謝今晚嚟玩！<span class="en">Thank you for spending your night with us!</span></div>
+    <p class="addr">18958 Daisetta St #106, Rowland Heights, CA 91748 · Open Daily 5PM – 2AM</p>
+    <svg class="wave" width="120" height="10" viewBox="0 0 120 10" fill="none" aria-hidden="true"><path d="M2 5 Q 12 0, 22 5 T 42 5 T 62 5 T 82 5 T 102 5 T 122 5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+  </header>
+
+  <!-- STEP 1 -->
+  <section class="card" aria-labelledby="s1">
+    <div class="step-head">
+      <span class="step-num">1</span>
+      <h2 id="s1">今晚食咗、玩咗咩？<span class="en">What did you have tonight? Tap all that apply</span></h2>
+    </div>
+    <p class="step-sub">㩒下你試過嘅串燒、飲品同體驗，可以㩒多幾樣，寫出嚟嘅好評會更貼近你今晚嘅體驗。</p>
+
+    <p class="group-label">🔥 招牌串燒同飲品 Skewers &amp; Drinks</p>
+    <div class="chips" id="dishChips"></div>
+
+    <p class="group-label">🎤 今晚體驗 The experience</p>
+    <div class="chips" id="vibeChips"></div>
+
+    <p class="selected-count" id="selCount">已揀 <b>0</b> 樣 · Nothing selected yet — 唔揀都得，會幫你寫通用好評</p>
+  </section>
+
+  <!-- STEP 2 -->
+  <section class="card" aria-labelledby="s2">
+    <div class="step-head">
+      <span class="step-num">2</span>
+      <h2 id="s2">一鍵寫好評<span class="en">Generate your review</span></h2>
+    </div>
+    <div class="lang-row">
+      <span class="lang-label">好評語言 Review language</span>
+      <div class="lang-toggle" role="group" aria-label="Review language">
+        <button type="button" id="langEn" aria-pressed="true">English</button>
+        <button type="button" id="langZh" aria-pressed="false">中文</button>
+      </div>
+    </div>
+    <button type="button" class="btn-gen" id="btnGen">幫我寫好評 ✍️<span class="en">Write my review</span></button>
+
+    <div class="draft-box" id="draftBox">
+      <div class="draft" id="draftText"></div>
+      <div class="draft-meta">
+        <span class="stars" aria-hidden="true">★★★★★</span>
+        <span id="charCount"></span>
+      </div>
+      <div class="draft-actions">
+        <button type="button" class="btn btn-again" id="btnAgain">🔀 換一條 Shuffle</button>
+        <button type="button" class="btn btn-copy" id="btnCopy">📋 複製全文 Copy</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 3 -->
+  <section class="card" aria-labelledby="s3">
+    <div class="step-head">
+      <span class="step-num">3</span>
+      <h2 id="s3">去發表好評<span class="en">Post your review</span></h2>
+    </div>
+    <div class="hint">先複製好評，再去貼上、揀星星就發表到 ⭐<span class="en">Copy your review first, then paste it and tap the stars to post.</span></div>
+    <div class="post-btns">
+      <a class="btn btn-google" href="https://g.page/r/CSlAYEKN8nH4EAI/review" target="_blank" rel="noopener">
+        <span><span class="g-mark"><span class="b">G</span><span class="r">o</span><span class="y">o</span><span class="g">g</span><span class="b">l</span><span class="g">e</span></span> 去 Google 發表<span class="sub">Review on Google</span></span>
+      </a>
+      <a class="btn btn-yelp" href="https://www.yelp.com/writeareview/biz/max-bbq-night-bar-rowland-heights-4" target="_blank" rel="noopener">
+        <span>去 Yelp 發表<span class="sub">Review on Yelp</span></span>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    評價內容可以按你嘅真實體驗再改改，多謝今晚嚟玩！<span class="heart">♥</span><br>
+    Feel free to tweak the draft so it matches your own night — thank you for partying with us!
+  </footer>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite">✅ 已複製！去貼上啦</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var DISHES = [
+    {name:"羊肉串", label:"Lamb Skewers", en:"the lamb skewers were juicy with that perfect cumin char", zh:"羊肉串孜然香濃，燒到外脆內嫩"},
+    {name:"牛肉串", label:"Beef Skewers", en:"the beef skewers were tender, smoky, and seasoned just right", zh:"牛肉串夠嫩夠入味，煙燻香十足"},
+    {name:"牛肋骨串", label:"Beef Short Rib Skewers", en:"the short rib skewers were rich and melt-in-your-mouth", zh:"牛肋骨串油香豐富，入口即化"},
+    {name:"雞脆骨串", label:"Chicken Cartilage Skewers", en:"the chicken cartilage skewers were crunchy and dangerously snackable", zh:"雞脆骨串脆卜卜，送酒一流"},
+    {name:"重慶烤魚", label:"Chongqing Grilled Fish", en:"the Chongqing grilled fish was spicy, numbing, and loaded with flavor", zh:"重慶烤魚麻辣鮮香，越食越過癮"},
+    {name:"烤牛骨髓", label:"Grilled Beef Bone Marrow", en:"the grilled bone marrow was rich, buttery, and unforgettable", zh:"烤牛骨髓香滑濃郁，食過返尋味"},
+    {name:"麻辣牛舌", label:"Spicy Beef Tongue", en:"the Sichuan-spiced beef tongue was tender with a nice kick", zh:"麻辣牛舌爽嫩帶勁，麻香啱啱好"},
+    {name:"蒜蓉烤茄子", label:"Garlic Grilled Eggplant", en:"the garlic grilled eggplant was soft, savory, and full of flavor", zh:"蒜蓉烤茄子綿軟入味，蒜香爆棚"},
+    {name:"芝士粟米", label:"Corn Cheese", en:"the corn cheese was gooey, sweet, and super comforting", zh:"芝士粟米拉絲又香甜，老少咸宜"},
+    {name:"炸魷魚鬚", label:"Fried Calamari", en:"the fried calamari was crispy outside and tender inside", zh:"炸魷魚鬚外脆內彈，唔會韌"},
+    {name:"鹽酥雞", label:"Popcorn Chicken", en:"the popcorn chicken was crispy, juicy, and perfect with drinks", zh:"鹽酥雞香脆多汁，送酒絕配"},
+    {name:"臭豆腐", label:"Stinky Tofu", en:"the stinky tofu was crispy, funky in the best way, and so authentic", zh:"臭豆腐外脆內嫩，嗰種香臭味好正宗"},
+    {name:"炒飯", label:"Fried Rice", en:"the fried rice had real wok flavor and wasn't greasy at all", zh:"炒飯有鑊氣，乾爽唔油膩"},
+    {name:"烤金針菇", label:"Grilled Enoki Mushrooms", en:"the grilled enoki mushrooms were savory and soaked up all the seasoning", zh:"烤金針菇索晒啲醬汁，鮮味十足"},
+    {name:"啤酒塔", label:"Beer Tower", en:"the beer tower was ice-cold and perfect for sharing with the whole table", zh:"啤酒塔夠晒冰凍，一班朋友share最開心"},
+    {name:"燒酒", label:"Soju", en:"chilled soju rounds with the crew made the night", zh:"冰凍燒酒一杯接一杯，氣氛即刻嚟晒"}
+  ];
+
+  var VIBES = [
+    {name:"KTV包房唱K", label:"Private KTV Room", en:"we booked a private karaoke room and sang our hearts out", zh:"訂咗KTV包房，唱到聲沙都唔願走"},
+    {name:"大廳唱歌", label:"Main Hall Singing", en:"you can even sing in the main hall — the whole place joins in", zh:"大廳都可以唱歌，全場一齊high"},
+    {name:"氣氛夠High", label:"Neon Night Vibes", en:"the neon-lit vibe felt like a night out in Chongqing", zh:"霓虹燈加音樂，好有重慶夜生活feel"},
+    {name:"朋友聚會", label:"Great for Groups", en:"it's the perfect spot to hang out with friends", zh:"同成班朋友嚟聚會啱晒"},
+    {name:"生日派對", label:"Birthday Party", en:"such a fun place for a birthday celebration", zh:"喺度開生日派對超有氣氛"},
+    {name:"服務親切", label:"Friendly Staff", en:"the staff were friendly and took great care of us", zh:"店員服務親切，招呼周到"},
+    {name:"開到凌晨2點", label:"Open Till 2 AM", en:"love that they stay open till 2 AM", zh:"開到凌晨兩點，夜貓子福音"}
+  ];
+
+  var T = {
+    en: {
+      openers: [
+        "Finally checked out MAX BBQ & KTV in Rowland Heights — what a night!",
+        "Skewers, drinks, and karaoke all in one place? This spot gets it.",
+        "Came here with friends for a night out and nobody wanted to leave.",
+        "If you love Chongqing-style BBQ, this is the real deal.",
+        "Best late-night hangout in Rowland Heights, hands down.",
+        "Booked a KTV room here and it was the most fun we've had in ages."
+      ],
+      dishIntros: [
+        "Everything we ordered was a hit — ",
+        "The standouts for me: ",
+        "We ordered a feast and honestly, ",
+        "Food and drink-wise, I have to mention that ",
+        "Let me start with the good stuff: "
+      ],
+      joinMid: "; ",
+      joinLast: "; and ",
+      vibeIntros: [
+        "On top of that, ",
+        "Also worth mentioning: ",
+        "Vibe-wise, ",
+        "And honestly, "
+      ],
+      genericDish: "everything came off the grill hot, fresh, and packed with that smoky Chongqing-style flavor",
+      closers: [
+        "Will definitely be back — highly recommend for your next night out!",
+        "Already planning the next visit. Five stars, easy.",
+        "So glad to have a late-night spot like this nearby!",
+        "Come hungry, leave hoarse from singing. Can't wait to come back!",
+        "This is the kind of place you tell all your friends about."
+      ]
+    },
+    zh: {
+      openers: [
+        "終於嚟試咗 Rowland Heights 呢間 MAX BBQ & KTV，又食又唱，成晚超滿足！",
+        "串燒、啤酒、唱K一次過滿足晒，呢間真係要推介。",
+        "同班朋友嚟呢度過夜晚，個個都玩到唔捨得走。",
+        "鍾意重慶燒烤嘅朋友，呢間係真材實料。",
+        "Rowland Heights 宵夜好去處，冇得輸。",
+        "今次訂咗KTV包房，唱到盡興，好耐冇咁開心過。"
+      ],
+      dishIntros: [
+        "今次叫嘅每樣都好啱食——",
+        "特別想推介：",
+        "我哋叫到成枱都係，其中",
+        "講到食同飲，",
+        "先講下啲嘢食："
+      ],
+      joinMid: "；",
+      joinLast: "；同埋",
+      vibeIntros: [
+        "另外，",
+        "仲有，",
+        "氣氛方面，",
+        "值得一讚嘅係，"
+      ],
+      genericDish: "每樣串燒都即叫即燒，熱辣辣好有重慶風味",
+      closers: [
+        "一定會再嚟，誠意推介俾鍾意夜生活嘅朋友！",
+        "已經諗定下次幾時再嚟，五星冇懸念。",
+        "附近有間開到凌晨兩點嘅好地方，真係好幸福。",
+        "食到飽、唱到沙，下次要帶多啲朋友嚟！",
+        "呢啲咁有氣氛嘅店值得支持，會再返嚟。"
+      ]
+    }
+  };
+
+  var lang = "en";
+  var selectedDishes = {};
+  var selectedVibes = {};
+
+  function pick(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
+  function shuffle(arr){
+    var a = arr.slice();
+    for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i];a[i]=a[j];a[j]=t; }
+    return a;
+  }
+
+  function buildChips(containerId, items, store, isVibe){
+    var box = document.getElementById(containerId);
+    items.forEach(function(item, idx){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "chip" + (isVibe ? " vibe" : "");
+      var zhSpan = document.createElement("span");
+      zhSpan.className = "chip-zh";
+      zhSpan.textContent = item.name;
+      var enSpan = document.createElement("span");
+      enSpan.className = "chip-en";
+      enSpan.textContent = item.label;
+      b.appendChild(zhSpan);
+      b.appendChild(enSpan);
+      b.setAttribute("aria-pressed","false");
+      b.addEventListener("click", function(){
+        var on = b.getAttribute("aria-pressed") === "true";
+        b.setAttribute("aria-pressed", on ? "false" : "true");
+        if(on){ delete store[idx]; } else { store[idx] = item; }
+        updateCount();
+      });
+      box.appendChild(b);
+    });
+  }
+
+  function countSelected(){
+    return Object.keys(selectedDishes).length + Object.keys(selectedVibes).length;
+  }
+  function updateCount(){
+    var n = countSelected();
+    var el = document.getElementById("selCount");
+    if(n === 0){
+      el.innerHTML = "已揀 <b>0</b> 樣 · Nothing selected yet — 唔揀都得，會幫你寫通用好評";
+    } else {
+      el.innerHTML = "已揀 <b>" + n + "</b> 樣 · " + n + " selected — 㩒下面粒掣即刻寫好評！";
+    }
+  }
+
+  function joinSnippets(snippets, t){
+    if(snippets.length === 1) return snippets[0];
+    if(snippets.length === 2) return snippets[0] + t.joinLast + snippets[1];
+    var head = snippets.slice(0,-1).join(t.joinMid);
+    return head + t.joinLast + snippets[snippets.length-1];
+  }
+
+  function generate(){
+    var t = T[lang];
+    var dishItems = shuffle(Object.keys(selectedDishes).map(function(k){ return selectedDishes[k]; }));
+    var vibeItems = Object.keys(selectedVibes).map(function(k){ return selectedVibes[k]; });
+    var key = (lang === "en") ? "en" : "zh";
+
+    var parts = [];
+    parts.push(pick(t.openers));
+
+    var dishSnips = dishItems.map(function(d){ return d[key]; });
+    var dishSentence;
+    if(dishSnips.length){
+      dishSentence = pick(t.dishIntros) + joinSnippets(dishSnips, t) + (lang === "en" ? "." : "。");
+    } else {
+      dishSentence = pick(t.dishIntros) + t.genericDish + (lang === "en" ? "." : "。");
+    }
+    parts.push(dishSentence);
+
+    if(vibeItems.length){
+      var vibeSnips = vibeItems.map(function(v){ return v[key]; });
+      parts.push(pick(t.vibeIntros) + joinSnippets(vibeSnips, t) + (lang === "en" ? "." : "。"));
+    }
+
+    parts.push(pick(t.closers));
+    return parts.join(" ");
+  }
+
+  var draftBox = document.getElementById("draftBox");
+  var draftText = document.getElementById("draftText");
+  var charCount = document.getElementById("charCount");
+  var hasDraft = false;
+
+  function showDraft(){
+    var text = generate();
+    draftText.textContent = text;
+    charCount.textContent = text.length + (lang === "en" ? " characters" : " 字");
+    draftBox.classList.add("show");
+    hasDraft = true;
+    var copyBtn = document.getElementById("btnCopy");
+    copyBtn.classList.remove("copied");
+    copyBtn.innerHTML = "📋 複製全文 Copy";
+  }
+
+  document.getElementById("btnGen").addEventListener("click", function(){
+    showDraft();
+    draftBox.scrollIntoView({behavior:"smooth", block:"nearest"});
+  });
+  document.getElementById("btnAgain").addEventListener("click", showDraft);
+
+  var toast = document.getElementById("toast");
+  var toastTimer = null;
+  function showToast(msg){
+    toast.textContent = msg;
+    toast.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toast.classList.remove("show"); }, 2200);
+  }
+
+  document.getElementById("btnCopy").addEventListener("click", function(){
+    var btn = this;
+    var text = draftText.textContent;
+    function done(){
+      btn.classList.add("copied");
+      btn.innerHTML = "✅ 已複製 Copied!";
+      showToast("✅ 已複製 Copied! 去 Google / Yelp 貼上啦");
+      setTimeout(function(){
+        btn.classList.remove("copied");
+        btn.innerHTML = "📋 複製全文 Copy";
+      }, 2600);
+    }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done).catch(function(){ fallback(); });
+    } else { fallback(); }
+    function fallback(){
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.position = "fixed"; ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand("copy"); done(); }
+      catch(e){ showToast("複製唔到 Copy failed — 請長㩒文字手動複製"); }
+      document.body.removeChild(ta);
+    }
+  });
+
+  var langEn = document.getElementById("langEn");
+  var langZh = document.getElementById("langZh");
+  function setLang(l){
+    lang = l;
+    langEn.setAttribute("aria-pressed", l === "en" ? "true" : "false");
+    langZh.setAttribute("aria-pressed", l === "zh" ? "true" : "false");
+    if(hasDraft) showDraft();
+  }
+  langEn.addEventListener("click", function(){ setLang("en"); });
+  langZh.addEventListener("click", function(){ setLang("zh"); });
+
+  buildChips("dishChips", DISHES, selectedDishes, false);
+  buildChips("vibeChips", VIBES, selectedVibes, true);
+  updateCount();
+})();
+</script>
+</body>
+</html>
